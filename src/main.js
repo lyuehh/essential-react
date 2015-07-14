@@ -3,22 +3,22 @@
  */
 
 // Polyfill
-import "babel-core/polyfill";
+import 'babel-core/polyfill';
 
 // Libraries
-import React from "react";
-import Router from "react-router";
+import React from 'react';
+import Router from 'react-router';
 
 // Common utilities
-import Session from "./common/session";
+import Session from './common/session';
 
 // Routers
-import LoggedOutRouter from "./routers/logged_out";
-import LoggedInRouter from "./routers/logged_in";
+import LoggedOutRouter from './routers/logged_out';
+import LoggedInRouter from './routers/logged_in';
 
 
 // ID of the DOM element to mount app on
-const DOM_APP_EL_ID = "app";
+const DOM_APP_EL_ID = 'app';
 
 
 // Initialize routes depending on session
@@ -50,10 +50,10 @@ if (Session.isLoggedIn()) {
  *  })
  *
  *  Given a Route handler:
- *    <Route name="some-page" handler={SomePage} />
+ *    <Route name='some-page' handler={SomePage} />
  *
  *  when it becomes activated, it will be passed a {data} prop containing the response:
- *    <SomePage data="..." />
+ *    <SomePage data='...' />
  *
  *
  * @param  {[Route]} routes list of activated routes
@@ -61,10 +61,10 @@ if (Session.isLoggedIn()) {
  *
  * @return {Promise}        data containing responses mapped by route name
  */
-let fetchData = function(routes, params) {
+let fetchData = function(routers, params) {
   let data = {};
 
-  return Promise.all(routes
+  return Promise.all(routers
     .filter(route => route.handler.fetchData)
     .map(route => {
       return route.handler.fetchData(params).then(resp => {
