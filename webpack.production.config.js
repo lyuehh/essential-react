@@ -1,19 +1,19 @@
-var webpack = require('webpack');
+var path = require('path');
 
 /**
  * This is the Webpack configuration file for production.
  */
 module.exports = {
-  entry: "./src/main",
+  entry: './src/main',
 
   output: {
-    path: __dirname + "/build/",
-    filename: "app.js"
+    path: path.join(__dirname, 'build/'),
+    filename: 'app.js'
   },
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader?stage=0" }
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader?stage=0' }
     ]
   },
 

@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 /**
  * This is the Webpack configuration file for local development. It contains
@@ -13,21 +14,21 @@ var webpack = require('webpack');
 module.exports = {
 
   // Efficiently evaluate modules with source maps
-  devtool: "eval",
+  devtool: 'eval',
 
   // Set entry point to ./src/main and include necessary files for hot load
-  entry:  [
-    "webpack-dev-server/client?http://localhost:9090",
-    "webpack/hot/only-dev-server",
-    "./src/main"
+  entry: [
+    'webpack-dev-server/client?http://localhost:9090',
+    'webpack/hot/only-dev-server',
+    './src/main'
   ],
 
   // This will not actually create a bundle.js file in ./build. It is used
   // by the dev server for dynamic hot loading.
   output: {
-    path: __dirname + "/build/",
-    filename: "app.js",
-    publicPath: "http://localhost:9090/build/"
+    path: path.join(__dirname, 'build/'),
+    filename: 'app.js',
+    publicPath: 'http://localhost:9090/build/'
   },
 
   // Necessary plugins for hot load
@@ -42,7 +43,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader?stage=0"],
+        loaders: ['react-hot', 'babel-loader?stage=0'],
       }
     ]
   },
