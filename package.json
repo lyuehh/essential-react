@@ -10,6 +10,7 @@
     "test": "PHANTOMJS_BIN=./node_modules/.bin/phantomjs ./node_modules/karma/bin/karma start karma.config.js",
     "test-cross-browser": "./node_modules/karma/bin/karma start karma.cross-browser.config.js",
     "coveralls": "cat coverage/lcov.info | coveralls",
+    "lint": "node_modules/.bin/eslint src",
     "clean": "rm build/app.js"
   },
   "repository": {

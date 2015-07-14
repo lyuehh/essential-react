@@ -17,3 +17,4 @@ let session = new Session(window);
 
 
 export default session;
+
