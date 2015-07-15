@@ -6,6 +6,7 @@ import { history } from 'react-router/lib/HashHistory';
 
 import Index from './routers/index'
 import About from './routers/about'
+import Message from './routers/message'
 
 var App = React.createClass({
   render() {
@@ -23,13 +24,13 @@ var App = React.createClass({
   }
 });
 
-// Finally we render a `Router` component with some `Route`s, it'll do all
-// the fancy routing stuff for us.
 React.render((
   <Router history={history}>
     <Route path="/" component={App}>
       <Route path="about" component={About}/>
-      <Route path="index" component={Index}/>
+      <Route path="index" component={Index}>
+        <Route path="messages/:id" component={Message}/>
+      </Route>
     </Route>
   </Router>
 ), document.body);
