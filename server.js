@@ -24,6 +24,10 @@ app.get('/app.js', function(req, res) {
 });
 
 // Serve index page
+
+app.get('/favicon.ico', function(req, res) {
+  res.sendFile(__dirname + '/build/favicon.ico');
+});
 app.get('*', function(req, res) {
   res.sendFile(__dirname + '/build/index.html');
 });
