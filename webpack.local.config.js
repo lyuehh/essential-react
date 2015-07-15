@@ -40,16 +40,11 @@ module.exports = {
   // Transform source code using Babel and React Hot Loader
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loaders: ['react-hot', 'babel-loader?stage=0'],
-      }
+      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader?stage=0']},
+      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.sass$/, loade: 'style!css!sass' },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&minetype=application/font-woff' },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
     ]
-  },
-
-  // Automatically transform files with these extensions
-  resolve: {
-    extensions: ['', '.js', '.jsx']
   }
 }
