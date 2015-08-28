@@ -43,8 +43,7 @@ module.exports = {
       { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader?stage=0']},
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.sass$/, loade: 'style!css!sass' },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&minetype=application/font-woff' },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
+      { test: /\.(eot|woff|ttf|svg|png|jpg)([\?]?.*)$/, loader: 'url-loader' }
     ]
   }
 }
